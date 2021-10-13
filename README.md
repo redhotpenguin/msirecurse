@@ -1,7 +1,6 @@
 # msirecurse
 
-## Recursively searches a `map[string]interface{}` structure for existence
-## of a `map[string]interface{}` structure
+## Recursively searches a `map[string]interface{}` structure for existence of a `map[string]interface{}` structure
 
 ### Motivation
 I wrote this package when faced with the problem of searching a json object
