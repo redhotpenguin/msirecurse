@@ -23,7 +23,7 @@ import (
     "fmt"
     "io/ioutil"
     "os"
-    "redhotpenguin/msirecurse"
+    "github.com/redhotpenguin/msirecurse/msirecurse"
 )
 
 func main() {
