@@ -7,6 +7,30 @@ import (
 func TestNeedleInHaystack(t *testing.T) {
 	{
 		// successful test case
+		needle := map[string]interface{}{"bar": "baz"}
+		haystack := map[string]interface{}{"foo": map[string]interface{}{"bar": "baz", "zim": "zam"}, "bar": "baz"}
+		inHaystack, err := NeedleInHaystack(needle, haystack)
+		if err != nil {
+			t.Errorf("test failure %v", err)
+		}
+		if !inHaystack {
+			t.Errorf("test failure, needle not in haystack")
+		}
+	}
+	{
+		// successful test case
+		needle := map[string]interface{}{"bar": "baz"}
+		haystack := map[string]interface{}{"bar": "baz", "foo": map[string]interface{}{"bar": "baz", "zim": "zam"}}
+		inHaystack, err := NeedleInHaystack(needle, haystack)
+		if err != nil {
+			t.Errorf("test failure %v", err)
+		}
+		if !inHaystack {
+			t.Errorf("test failure, needle not in haystack")
+		}
+	}
+	{
+		// successful test case
 		needle := map[string]interface{}{"foo": map[string]interface{}{"bar": "baz"}}
 		haystack := map[string]interface{}{"foo": map[string]interface{}{"bar": "baz", "zim": "zam"}}
 		inHaystack, err := NeedleInHaystack(needle, haystack)
@@ -17,6 +41,7 @@ func TestNeedleInHaystack(t *testing.T) {
 			t.Errorf("test failure, needle not in haystack")
 		}
 	}
+
 	{
 		// unsuccessful test case
 		needle := map[string]interface{}{"foo": "bar"}
